@@ -1,0 +1,36 @@
+<h1>Login</h1>
+<div class="alert alert-danger" *ngIf="serverError">
+  Email or password is invalid
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      class="form-control"
+      placeholder="Email ..."
+      formControlName="email"
+    />
+
+    <div *ngIf="submitted && f.email.errors">
+      <p *ngIf="f.email.errors.required">Email is required</p>
+      <p *ngIf="f.email.errors.email">Email is not valid</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input
+      class="form-control"
+      type="password"
+      placeholder="Password ..."
+      formControlName="password"
+    />
+  </div>
+  <br>
+  <button
+    type="submit"
+    class="btn btn-success"
+    [disabled]="loginForm.status === 'INVALID'"
+  >
+    Login
+  </button>
+</form>

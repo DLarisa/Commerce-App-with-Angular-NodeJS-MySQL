@@ -1,0 +1,29 @@
+<h2>Register</h2>
+<div class="alert alert-danger" *ngIf="isValid()">Your form is invalid</div>
+<input class="form-control" placeholder="Name ..." [(ngModel)]="user.name" />
+<input
+  class="form-control"
+  [class]="
+    validateEmail(user.email) ? 'form-control' : 'form-control is-invalid'
+  "
+  [ngClass]="validateEmail(user.email) ? '' : 'is-invalid'"
+  placeholder="Email ..."
+  [(ngModel)]="user.email"
+/>
+<input
+  class="form-control"
+  type="password"
+  placeholder="Password ..."
+  [(ngModel)]="user.password"
+/>
+<input
+  class="form-control"
+  type="password"
+  placeholder="Confirm Password ..."
+  [(ngModel)]="user.confirm_password"
+/>
+
+<br>
+<button class="btn btn-primary" [disabled]="isValid()" (click)="register()">
+  Register
+</button>

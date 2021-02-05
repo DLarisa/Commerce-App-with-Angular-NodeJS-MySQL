@@ -1,0 +1,179 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- shop -->
+      <div class="col-md-3 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://media.karousell.com/media/photos/products/2020/6/24/nct_127__regularirregular_1593005045_e2314bd8.jpg" alt="Boy-Bands-Photo">
+          </div>
+          <div class="shop-body">
+            <h4 style="color: white;">Boy-Bands<br>Collection</h4>
+            <a class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-3 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://pbs.twimg.com/media/EZZP8m1U8AAfAyk.jpg" alt="Girl-Bands-Photo">
+          </div>
+          <div class="shop-body">
+            <h4 style="color: white;">Girl-Bands<br>Collection</h4>
+            <a class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-3 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://img.discogs.com/bPMSYB5GT4PEKY8mSX42W839maE=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-16043489-1602427723-1391.jpeg.jpg" alt="Male-Solos-Photo">
+          </div>
+          <div class="shop-body">
+            <h4 style="color: white;">Male-Solos<br>Collection</h4>
+            <a class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-3 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b3ccf08-384b-4cc4-9c32-12e2aaa1bc42/de13r7u-a71a1fe9-a16c-4352-b7ef-5aeddf2430b0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMmIzY2NmMDgtMzg0Yi00Y2M0LTljMzItMTJlMmFhYTFiYzQyXC9kZTEzcjd1LWE3MWExZmU5LWExNmMtNDM1Mi1iN2VmLTVhZWRkZjI0MzBiMC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.fKnMo03iyFs-UX0pV1Kq3u3nKiN8aXMONPjE_2QSXDc" alt="Female-Solos-Photo">
+          </div>
+          <div class="shop-body">
+            <h4 style="color: white;">Female-Solos<br>Collection</h4>
+            <a class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+
+
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">New Products</h3>
+
+        </div>
+      </div>
+      <!-- /section title -->
+
+      <!-- Products tab & slick -->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+            <div class="card my-2">
+              <img [src]="p.image" alt="{{p.name}}" width="200px" class="card-img-top" style="cursor: pointer;" (click)="selectProduct(p.id)">
+              <div class="card-header">
+                <div class="card-title">
+                  <p>{{p.name | titlecase}}</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <h6>{{p.description.substr(0, 65)}} ...</h6>
+                <p class="lead">{{p.price | currency: 'EUR'}}</p>
+              </div>
+              <div class="row d-flex justify-content-center border-primary my-3">
+                <div class="col-md-6">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                      [class.disabled]="p.quantity < 1"
+                      [class.btn-outline-danger]="p.quantity < 1"
+                      (click) = "AddToCart(p.id)"
+                  >
+                    {{
+                        p.quantity < 1 ? "SOLD OUT" : "Add to Cart"
+                  }}</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Products tab & slick -->
+    </div>
+    <!-- /row -->
+    </div>
+  </div>
+</div>
+<!-- /SECTION -->
+
+
+
+
+
+
+
+
+<!-- NEWSLETTER -->
+<div id="newsletter" class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="newsletter">
+          <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+          <form>
+            <input class="input" type="email" placeholder="Enter Your Email">
+            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+          </form>
+		  
+		  
+		  <!-- LOGIN / REGISTER -->
+		  <div class="container">
+			<div class="col text-center">
+				<a [routerLink]="['/login']" class="btn btn-dark mr-1">Login</a>
+				<a [routerLink]="['/register']" class="btn btn-dark ">Register</a>
+			</div>
+		  </div>
+		  <!-- LOGIN / REGISTER -->
+<br>
+
+
+          <ul class="newsletter-follow">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-pinterest"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
